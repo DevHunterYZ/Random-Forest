@@ -1,2 +1,2 @@
 # Random-Forest
-Scikit learning random forest use
+Scikit-learn random forest use
