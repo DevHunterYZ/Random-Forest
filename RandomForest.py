@@ -39,3 +39,16 @@ train, test = df[df['is_train']==True], df[df['is_train']==False]
 print('Eğitim verilerindeki gözlem sayısı:', len(train))
 print('Test verilerindeki gözlem sayısı:',len(test))
 
+# Özellik sütununun adlarının bir listesini oluşturun.
+features = df.columns[:4]
+
+# Özellikleri görüntüle.
+features
+# train['species'] gerçek tür isimlerini içerir. Kullanmadan önce,
+# Her türün adını bir basamağa dönüştürmemiz gerekiyor. Yani, bu durumda orada 0, 1 veya 2 olarak kodlanmış üç tür vardır.
+y = pd.factorize(train['species'])[0]
+# Hedefi görüntüle.
+y
+
+
+
