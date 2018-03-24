@@ -69,7 +69,7 @@ preds[0:5]
 test['species'].head()
 # Karışıklık matrisi oluştur.
 pd.crosstab(test['species'], preds, rownames=['Actual Species'], colnames=['Predicted Species'])
-# View a list of the features and their importance scores
+# Özelliklerin ve önem puanlarının bir listesini görüntüleyin.
 list(zip(train[features], clf.feature_importances_))
 
 
