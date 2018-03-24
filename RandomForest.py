@@ -55,6 +55,23 @@ clf = RandomForestClassifier(n_jobs=2, random_state=0)
 # Eğitim özelliklerini almak ve ilişkilerini öğrenmek için sınıflandırıcıyı eğitin.
 clf.fit(train[features], y)
 
+# Test verisi için eğitilen Sınıflandırıcıyı uygulayın(daha önce hiç görmediğini hatırlayın).
+clf.predict(test[features])
+
+# İlk 10 gözlemin tahmin edilen olasılıklarını görüntüle.
+clf.predict_proba(test[features])[0:10]
+
+# Her tahmini bitki sınıfı için bitkiler için gerçek ingilizce isimleri oluştur.
+preds = iris.target_names[clf.predict(test[features])]
+# İlk beş gözlem için tahmin edilen türleri görüntüleyin.
+preds[0:5]
+# İlk beş gözlem için gerçek türleri görüntüleyin.
+test['species'].head()
+# Karışıklık matrisi oluştur.
+pd.crosstab(test['species'], preds, rownames=['Actual Species'], colnames=['Predicted Species'])
+# View a list of the features and their importance scores
+list(zip(train[features], clf.feature_importances_))
+
 
 
 
