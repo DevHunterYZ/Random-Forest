@@ -49,6 +49,12 @@ features
 y = pd.factorize(train['species'])[0]
 # Hedefi görüntüle.
 y
+# Rastgele bir orman sınıflandırıcısı oluşturun. Sözlüğe göre, clf 'Sınıflandırıcı' anlamına gelir
+clf = RandomForestClassifier(n_jobs=2, random_state=0)
+
+# Eğitim özelliklerini almak ve ilişkilerini öğrenmek için sınıflandırıcıyı eğitin.
+clf.fit(train[features], y)
+
 
 
 
