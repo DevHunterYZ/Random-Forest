@@ -30,7 +30,7 @@ df.head()
 # Eğitim verileri ve bazıları test verileri olarak kullanılabilir.
 df ['is_train'] = np.random.uniform (0, 1, len (df)) <= .75
 
-# En iyi 5 satırı görüntüle
+# İlk 5 satırı görüntüle
 df.head ()
 # Biri test satırı olan diğeride bir eğitim(train) satırı olan iki yeni veri tablosu oluşturun.
 train, test = df[df['is_train']==True], df[df['is_train']==False]
