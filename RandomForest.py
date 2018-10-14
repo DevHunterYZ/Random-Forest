@@ -1,7 +1,7 @@
 # İris dataset ile kütüphanesini yükle.
 from sklearn.datasets import load_iris
 
-# Scikit'in rasgele orman sınıflandırıcı kütüphanesini yükleyin.
+# Scikit learn rastgele orman sınıflandırıcı kütüphanesini yükleyin.
 from sklearn.ensemble import RandomForestClassifier
 
 # Pandas yükle.
@@ -47,14 +47,14 @@ features
 # Her türün adını bir basamağa dönüştürmemiz gerekiyor. Yani, bu durumda orada 0, 1 veya 2 olarak kodlanmış üç tür vardır.
 y = pd.factorize(train['species'])[0]
 # Hedefi görüntüle.
-y
-# Rastgele bir orman sınıflandırıcısı oluşturun. Sözlüğe göre, clf 'Sınıflandırıcı' anlamına gelir
+print(y)
+# Random Forest sınıflandırıcısı oluşturun. 
 clf = RandomForestClassifier(n_jobs=2, random_state=0)
 
 # Eğitim özelliklerini almak ve ilişkilerini öğrenmek için sınıflandırıcıyı eğitin.
 clf.fit(train[features], y)
 
-# Test verisi için eğitilen Sınıflandırıcıyı uygulayın(daha önce hiç görmediğini hatırlayın).
+# Test verisi için eğitilen sınıflandırıcıyı uygulayın(daha önce hiç görmediğini hatırlayın).
 clf.predict(test[features])
 
 # İlk 10 gözlemin tahmin edilen olasılıklarını görüntüle.
@@ -70,7 +70,3 @@ test['species'].head()
 pd.crosstab(test['species'], preds, rownames=['Actual Species'], colnames=['Predicted Species'])
 # Özelliklerin ve önem puanlarının bir listesini görüntüleyin.
 list(zip(train[features], clf.feature_importances_))
-
-
-
-
